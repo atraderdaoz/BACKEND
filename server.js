@@ -1,28 +1,39 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+// Serve audio files
+app.use("/audio", express.static(path.join(__dirname, "public/audio")));
+
 // Health check
 app.get("/", (req, res) => {
-  res.send("RUN.AI Radio Backend Live");
+  res.send("RUN.AI Radio Backend Live 🚀");
 });
 
-// Example station endpoint
+// 🔥 CUSTOM STATION (YOUR FILE)
+app.get("/station/custom/stream", (req, res) => {
+  res.json({
+    audio: process.env.BASE_URL + "/audio/DSF1000.mp3",
+    station: "custom"
+  });
+});
+
+// Demo stations
 app.get("/station/:name/stream", (req, res) => {
   const station = req.params.name;
 
-  // Demo audio (replace with your AI system later)
   res.json({
-    audio: "public/audio/DSF1000.mp3",
+    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
     station
   });
 });
 
-// 🔥 CRITICAL FOR RENDER
+// Start server
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
