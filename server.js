@@ -17,7 +17,7 @@ app.get("/station/:name/stream", (req, res) => {
 
   // Demo audio (replace with your AI system later)
   res.json({
-    audio: "https://aimusicfactory.ai/share?id=3063182&music_id=b77ee47c-5d98-492c-89ef-372c298efbe8",
+    audio: "public/audio/DSF1000.mp3",
     station
   });
 });
