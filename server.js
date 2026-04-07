@@ -28,12 +28,13 @@ app.get("/station/:name/stream", (req, res) => {
   const station = req.params.name;
 
   res.json({
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    audio: "https://backend-production-ed9e.up.railway.app/audio/DFS1000.mp3",
     station
   });
 });
 
 // Start server
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
