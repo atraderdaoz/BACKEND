@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // Serve audio files
-app.use("/audio", require("express").static("BACKEND/public/audio"));
+app.use("/audio", require("express").static("BACKEND/public"));
 // Health check
 app.get("/", (req, res) => {
   res.send("RUN.AI Radio Backend Live 🚀");
