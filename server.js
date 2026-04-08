@@ -18,18 +18,16 @@ app.get("/", (req, res) => {
 // 🔥 CUSTOM STATION (YOUR FILE)
 app.get("/station/custom/stream", (req, res) => {
   res.json({
-    audio: process.env.BASE_URL + "/audio/DSF1000.mp3",
+    audio: "https://backend-production-ed9e.up.railway.app/audio/recording90.mp3",
     station: "custom"
   });
 });
 
 // Demo stations
-app.get("/station/:name/stream", (req, res) => {
-  const station = req.params.name;
-
+app.get("/station/custom/stream", (req, res) => {
   res.json({
-    audio: "https://backend-production-ed9e.up.railway.app/audio/DFS1000.mp3",
-    station
+    audio: "https://backend-production-ed9e.up.railway.app/audio/recording90.mp3",
+    station: "custom"
   });
 });
 
